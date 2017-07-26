@@ -1,7 +1,7 @@
 {
   "name": "semantic-action",
   "description": "Flexible action based on semantic commits: npm publish, deploy",
-  "version": "0.0.0-placeholder",
+  "version": "0.0.0-development",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com)",
   "bin": {
     "semantic-action": "bin/semantic-release.js"
@@ -43,7 +43,8 @@
     "proxyquire": "^1.7.3",
     "rimraf": "^2.5.0",
     "standard": "^10.0.0",
-    "tap": "^10.0.1"
+    "tap": "^10.0.1",
+    "semantic-release": "^6.3.6"
   },
   "engines": {
     "node": ">=6"
@@ -68,7 +69,7 @@
   "main": "bin/semantic-release.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bahmutov/semantic-action.git"
+    "url": "https://github.com/bahmutov/semantic-action.git"
   },
   "scripts": {
     "pretty": "prettier-standard 'bin/*.js', 'src/*.js'",
@@ -84,7 +85,9 @@
   "config": {
     "pre-git": {
       "commit-msg": "simple",
-      "pre-commit": ["npm run lint"],
+      "pre-commit": [
+        "npm run lint"
+      ],
       "pre-push": [],
       "post-commit": [],
       "post-checkout": [],
