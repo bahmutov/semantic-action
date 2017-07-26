@@ -4,7 +4,7 @@
   "version": "0.0.0-placeholder",
   "author": "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)",
   "bin": {
-    "semantic-release": "bin/semantic-release.js"
+    "semantic-action": "bin/semantic-release.js"
   },
   "bugs": {
     "url": "https://github.com/semantic-release/semantic-release/issues"

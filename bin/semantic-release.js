@@ -10,7 +10,7 @@ var nopt = require('nopt')
 var npmconf = require('npmconf')
 var normalizeData = require('normalize-package-data')
 
-log.heading = 'semantic-release'
+log.heading = 'semantic-action'
 var env = process.env
 var pkg = JSON.parse(fs.readFileSync('./package.json'))
 var originalPkg = _.cloneDeep(pkg)
