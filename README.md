@@ -26,5 +26,5 @@ be merged.
 
 [npm-icon]: https://nodei.co/npm/semantic-action.svg?downloads=true
 [npm-url]: https://npmjs.org/package/semantic-action
-[nut-badge]: https://img.shields.io/badge/next--update--travis-check-ok.svg
+[nut-badge]: https://img.shields.io/badge/next--update--travis-ok-green.svg
 [nut-readme]: https://github.com/bahmutov/next-update-travis#readme
