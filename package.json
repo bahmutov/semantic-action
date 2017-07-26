@@ -1,16 +1,13 @@
 {
-  "name": "semantic-release",
-  "description": "automated semver compliant package publishing",
+  "name": "semantic-action",
+  "description": "Flexible action based on semantic commits: npm publish, deploy",
   "version": "0.0.0-placeholder",
-  "author": "Stephan Bönnemann <stephan@boennemann.me> (http://boennemann.me)",
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com> (https://glebbahmutov.com)",
   "bin": {
     "semantic-action": "bin/semantic-release.js"
   },
   "bugs": {
-    "url": "https://github.com/semantic-release/semantic-release/issues"
-  },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog/"
+    "url": "https://github.com/bahmutov/semantic-action/issues"
   },
   "dependencies": {
     "@semantic-release/commit-analyzer": "^2.0.0",
@@ -41,20 +38,20 @@
     "nock": "^9.0.2",
     "npm-registry-couchapp": "^2.6.12",
     "nyc": "^10.0.0",
+    "prettier-standard": "^6.0.0",
     "proxyquire": "^1.7.3",
     "rimraf": "^2.5.0",
-    "standard": "^9.0.0",
+    "standard": "^10.0.0",
     "tap": "^10.0.1"
   },
   "engines": {
-    "node": ">=0.10",
-    "npm": ">=2"
+    "node": ">=6"
   },
   "files": [
     "bin",
     "src"
   ],
-  "homepage": "https://github.com/semantic-release/semantic-release#readme",
+  "homepage": "https://github.com/bahmutov/semantic-action#readme",
   "keywords": [
     "author",
     "automation",
@@ -68,20 +65,15 @@
   ],
   "license": "MIT",
   "main": "bin/semantic-release.js",
-  "publishConfig": {
-    "tag": "next"
-  },
-  "release": {
-    "branch": "caribou"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/semantic-release/semantic-release.git"
+    "url": "git+https://github.com/bahmutov/semantic-action.git"
   },
   "scripts": {
-    "coverage": "nyc report",
-    "coverage:upload": "npm run coverage -s -- --reporter=text-lcov | coveralls",
-    "pretest": "standard",
+    "pretty": "prettier-standard 'bin/*.js', 'src/*.js'",
+    "prelint": "npm run pretty",
+    "lint": "standard --verbose --fix bin/*.js src/*.js",
+    "pretest": "npm run lint",
     "semantic-release": "./bin/semantic-release.js pre && npm publish && ./bin/semantic-release.js post",
     "test": "npm run test:unit && npm run test:integration",
     "test:integration": "tap --no-cov test/scenarios/*.js",
