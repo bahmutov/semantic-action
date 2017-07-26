@@ -33,6 +33,7 @@ module.exports = function (config, cb) {
         : semver.inc(results.lastRelease.version, results.type)
     }
 
+    console.log('verifyRelease')
     plugins.verifyRelease(_.assign({
       commits: results.commits,
       lastRelease: results.lastRelease,

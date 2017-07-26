@@ -22,6 +22,7 @@ module.exports = function (config) {
 
   if (options.debug) return errors
 
+  /* defer this verification, maybe we won't need it
   if (!options.githubToken) {
     errors.push(new SemanticReleaseError(
       'No github token specified.',
@@ -34,7 +35,7 @@ module.exports = function (config) {
       'No npm token specified.',
       'ENONPMTOKEN'
     ))
-  }
+  }*/
 
   return errors
 }

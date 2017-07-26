@@ -140,9 +140,10 @@ npmconf.load({}, function (err, conf) {
             log.silly('pre', 'Couldn\'t find npm-shrinkwrap.json.')
           }
 
-          fs.writeFileSync('./package.json', JSON.stringify(_.assign(originalPkg, {
+          const text = JSON.stringify(_.assign(originalPkg, {
             version: release.version
-          }), null, 2))
+          }), null, 2) + '\n'
+          fs.writeFileSync('./package.json', text)
 
           log.verbose('pre', 'Wrote version ' + release.version + ' to package.json.')
         })
