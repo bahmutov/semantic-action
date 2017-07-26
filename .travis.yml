@@ -9,7 +9,7 @@ node_js:
 - 6
 before_script:
 - npm prune
-after_success:
-- npm run semantic-release
+# after_success:
+# - npm run semantic-release
 services:
 - couchdb
