@@ -1,5 +1,7 @@
 # semantic-action
 
+[![NPM][npm-icon]][npm-url]
+
 [![Build Status](https://travis-ci.org/bahmutov/semantic-action.svg?branch=master)](https://travis-ci.org/bahmutov/semantic-action)
 
 This is a fork of [semantic-release][semantic-release] that allows you to
@@ -20,3 +22,6 @@ be merged.
 * [deploying static site](https://github.com/bahmutov/test-semantic-deploy)
 
 [semantic-release]: https://github.com/semantic-release/semantic-release
+
+[npm-icon]: https://nodei.co/npm/semantic-action.svg?downloads=true
+[npm-url]: https://npmjs.org/package/semantic-action
