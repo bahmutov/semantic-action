@@ -1,5 +1,7 @@
 # semantic-action
 
+[![Build Status](https://travis-ci.org/bahmutov/semantic-action.svg?branch=master)](https://travis-ci.org/bahmutov/semantic-action)
+
 This is a fork of [semantic-release][semantic-release] that allows you to
 
 > run any action (not just `npm publish`) based on commits after *any event*.
