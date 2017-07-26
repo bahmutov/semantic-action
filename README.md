@@ -18,6 +18,13 @@ I really appreciate the work `semantic-release` team has put into their tool,
 and love their plugin model. This fork will extend the system, but will not
 be merged.
 
+## Plugins
+
+I am trying to keep this tool compatible with `semantic-release` plugins.
+Additional useful plugins are
+
+* [url-to-sha](https://github.com/bahmutov/url-to-sha)
+
 ## Examples
 
 * [deploying static site](https://github.com/bahmutov/test-semantic-deploy)
