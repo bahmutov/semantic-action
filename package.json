@@ -38,6 +38,7 @@
     "nock": "^9.0.2",
     "npm-registry-couchapp": "^2.6.12",
     "nyc": "^10.0.0",
+    "pre-git": "^3.15.0",
     "prettier-standard": "^6.0.0",
     "proxyquire": "^1.7.3",
     "rimraf": "^2.5.0",
@@ -75,8 +76,19 @@
     "lint": "standard --verbose --fix bin/*.js src/*.js",
     "pretest": "npm run lint",
     "semantic-release": "./bin/semantic-release.js pre && npm publish && ./bin/semantic-release.js post",
-    "test": "npm run test:unit && npm run test:integration",
+    "test": "npm run test:unit",
     "test:integration": "tap --no-cov test/scenarios/*.js",
-    "test:unit": "nyc tap --no-cov test/specs/*.js"
+    "test:unit": "nyc tap --no-cov test/specs/*.js",
+    "commit": "commit-wizard"
+  },
+  "config": {
+    "pre-git": {
+      "commit-msg": "simple",
+      "pre-commit": ["npm run lint"],
+      "pre-push": [],
+      "post-commit": [],
+      "post-checkout": [],
+      "post-merge": []
+    }
   }
 }
