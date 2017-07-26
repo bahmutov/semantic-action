@@ -3,6 +3,7 @@
 [![NPM][npm-icon]][npm-url]
 
 [![Build Status](https://travis-ci.org/bahmutov/semantic-action.svg?branch=master)](https://travis-ci.org/bahmutov/semantic-action)
+[![next-update-travis badge][nut-badge]][nut-readme]
 
 This is a fork of [semantic-release][semantic-release] that allows you to
 
@@ -25,3 +26,5 @@ be merged.
 
 [npm-icon]: https://nodei.co/npm/semantic-action.svg?downloads=true
 [npm-url]: https://npmjs.org/package/semantic-action
+[nut-badge]: https://img.shields.io/badge/next--update--travis-check-ok.svg
+[nut-readme]: https://github.com/bahmutov/next-update-travis#readme
