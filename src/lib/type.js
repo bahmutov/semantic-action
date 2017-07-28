@@ -1,4 +1,5 @@
 var SemanticReleaseError = require('@semantic-release/error')
+const debug = require('debug')('semantic-action')
 
 module.exports = function (config, cb) {
   var plugins = config.plugins
@@ -13,6 +14,10 @@ module.exports = function (config, cb) {
         'ENOCHANGE'
       ))
     }
+
+    debug('last release was', lastRelease.version)
+    debug('from lastRelease object', lastRelease)
+    debug('analyzeCommits recommends version bump "%s"', type)
 
     if (!lastRelease.version) return cb(null, 'initial')
 

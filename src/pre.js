@@ -1,6 +1,7 @@
 var _ = require('lodash')
 var auto = require('run-auto')
 var semver = require('semver')
+const debug = require('debug')('semantic-action')
 
 var getCommits = require('./lib/commits')
 var getType = require('./lib/type')
@@ -14,6 +15,8 @@ module.exports = function (config, cb) {
       commits: [
         'lastRelease',
         function (results, cb) {
+          debug('lastRelease results')
+          debug(results)
           getCommits(
             _.assign(
               {
@@ -29,6 +32,8 @@ module.exports = function (config, cb) {
         'commits',
         'lastRelease',
         function (results, cb) {
+          debug('for getType, results are')
+          debug(results)
           getType(
             _.assign(
               {
@@ -53,21 +58,21 @@ module.exports = function (config, cb) {
             : semver.inc(results.lastRelease.version, results.type)
       }
 
-      console.log('verifyRelease')
-      plugins.verifyRelease(
-        _.assign(
-          {
-            commits: results.commits,
-            lastRelease: results.lastRelease,
-            nextRelease: nextRelease
-          },
-          config
-        ),
-        function (err) {
-          if (err) return cb(err)
-          cb(null, nextRelease)
-        }
+      const options = _.assign(
+        {
+          commits: results.commits,
+          lastRelease: results.lastRelease,
+          nextRelease: nextRelease
+        },
+        config
       )
+      debug('verifyRelease important options')
+      debug(_.pick(options, ['commits', 'lastRelease', 'nextRelease']))
+
+      plugins.verifyRelease(options, function (err) {
+        if (err) return cb(err)
+        cb(null, nextRelease)
+      })
     }
   )
 }

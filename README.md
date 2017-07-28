@@ -18,6 +18,10 @@ I really appreciate the work `semantic-release` team has put into their tool,
 and love their plugin model. This fork will extend the system, but will not
 be merged.
 
+## Debug
+
+Run semantic action with environment variable `DEBUG=semantic-action ...`
+
 ## Plugins
 
 I am trying to keep this tool compatible with `semantic-release` plugins.
