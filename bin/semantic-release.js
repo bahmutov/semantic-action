@@ -16,6 +16,7 @@ var pkg = JSON.parse(fs.readFileSync('./package.json'))
 var originalPkg = _.cloneDeep(pkg)
 normalizeData(pkg)
 var knownOptions = {
+  tagPrefix: String,
   branch: String,
   debug: Boolean,
   'github-token': String,
@@ -31,6 +32,7 @@ var options = _.defaults(
   }),
   pkg.release,
   {
+    tagPrefix: 'v',
     branch: 'master',
     fallbackTags: {
       next: 'latest'

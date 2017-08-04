@@ -3,6 +3,9 @@ var url = require('url')
 var gitHead = require('git-head')
 var GitHubApi = require('github')
 var parseSlug = require('parse-github-repo-url')
+const debug = require('debug')('semantic-action')
+const la = require('lazy-ass')
+const is = require('check-more-types')
 
 module.exports = function (config, cb) {
   var pkg = config.pkg
@@ -10,12 +13,18 @@ module.exports = function (config, cb) {
   var plugins = config.plugins
   var ghConfig = options.githubUrl ? url.parse(options.githubUrl) : {}
 
+  debug('options', options)
+  la(is.unemptyString(options.tagPrefix), 'missing tagPrefix', options)
+
   var github = new GitHubApi({
     port: ghConfig.port,
     protocol: (ghConfig.protocol || '').split(':')[0] || null,
     host: ghConfig.hostname,
     pathPrefix: options.githubApiPathPrefix || null
   })
+
+  debug('generating notes')
+  debug('config', config)
 
   plugins.generateNotes(config, function (err, log) {
     if (err) return cb(err)
@@ -27,8 +36,8 @@ module.exports = function (config, cb) {
       var release = {
         owner: ghRepo[0],
         repo: ghRepo[1],
-        name: 'v' + pkg.version,
-        tag_name: 'v' + pkg.version,
+        name: options.tagPrefix + pkg.version,
+        tag_name: options.tagPrefix + pkg.version,
         target_commitish: hash,
         draft: !!options.debug,
         body: log

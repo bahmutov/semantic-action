@@ -18,6 +18,18 @@ I really appreciate the work `semantic-release` team has put into their tool,
 and love their plugin model. This fork will extend the system, but will not
 be merged.
 
+## Options
+
+Change tag prefix from default 'v' to something else, like `release-`
+
+```json
+{
+  "release": {
+    "tagPrefix": "release-"
+  }
+}
+```
+
 ## Debug
 
 Run semantic action with environment variable `DEBUG=semantic-action ...`
