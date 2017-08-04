@@ -30,7 +30,7 @@ var defaultRelease = {
 test('full post run', function (t) {
   t.test('in debug mode w/o token', function (tt) {
     post({
-      options: {debug: true},
+      options: {debug: true, tagPrefix: 'v'},
       pkg: pkg,
       plugins: plugins
     }, function (err, published, release) {
@@ -44,7 +44,7 @@ test('full post run', function (t) {
 
   t.test('in debug mode w/token', function (tt) {
     post({
-      options: {debug: true, githubToken: 'yo'},
+      options: {debug: true, githubToken: 'yo', tagPrefix: 'v'},
       pkg: pkg,
       plugins: plugins
     }, function (err, published, release) {
@@ -58,7 +58,7 @@ test('full post run', function (t) {
 
   t.test('production', function (tt) {
     post({
-      options: {githubToken: 'yo'},
+      options: {githubToken: 'yo', tagPrefix: 'v'},
       pkg: pkg,
       plugins: plugins
     }, function (err, published, release) {
