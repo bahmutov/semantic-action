@@ -44,6 +44,7 @@ Additional useful plugins are
 ## Examples
 
 * [deploying static site](https://github.com/bahmutov/test-semantic-deploy)
+* [deploying to Zeit.co Now](https://github.com/bahmutov/test-semantic-deploy-with-now)
 
 [semantic-release]: https://github.com/semantic-release/semantic-release
 

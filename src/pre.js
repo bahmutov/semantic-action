@@ -50,6 +50,8 @@ module.exports = function (config, cb) {
     function (err, results) {
       if (err) return cb(err)
 
+      debug('results', results)
+
       var nextRelease = {
         type: results.type,
         version:
