@@ -18,7 +18,7 @@
     "check-more-types": "^2.24.0",
     "debug": "3.1.0",
     "git-head": "1.20.1",
-    "github": "13.1.0",
+    "github": "13.1.1",
     "lazy-ass": "^1.6.0",
     "lodash": "4.17.4",
     "nerf-dart": "^1.0.0",
@@ -30,7 +30,7 @@
     "require-relative": "^0.8.7",
     "run-auto": "^2.0.0",
     "run-series": "1.1.4",
-    "semver": "5.4.1"
+    "semver": "5.5.0"
   },
   "devDependencies": {
     "coveralls": "3.0.0",
@@ -47,7 +47,7 @@
     "prettier-standard": "8.0.0",
     "proxyquire": "1.8.0",
     "rimraf": "2.6.2",
-    "semantic-release": "12.2.0",
+    "semantic-release": "12.2.2",
     "simple-commit-message": "4.0.0",
     "standard": "10.0.3",
     "tap": "11.0.1"
