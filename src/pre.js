@@ -8,6 +8,7 @@ var getType = require('./lib/type')
 
 module.exports = function (config, cb) {
   var plugins = config.plugins
+  debug('plugins', plugins)
 
   auto(
     {
@@ -48,7 +49,10 @@ module.exports = function (config, cb) {
       ]
     },
     function (err, results) {
-      if (err) return cb(err)
+      if (err) {
+        debug('error', err)
+        return cb(err)
+      }
 
       debug('results', results)
 
