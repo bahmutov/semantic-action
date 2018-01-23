@@ -89,6 +89,9 @@
     "commit": "commit-wizard"
   },
   "config": {
+    "next-update": {
+      "skip": ["simple-commit-message"]
+    },
     "pre-git": {
       "commit-msg": "simple",
       "pre-commit": [
