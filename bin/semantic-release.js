@@ -100,10 +100,12 @@ npmconf.load({}, function (err, conf) {
 
     plugins.verifyConditions(config, function (err) {
       if (err) {
+        debug('error verifying conditions', err.message)
         log[options.debug ? 'warn' : 'error']('pre', err.message)
         if (!options.debug) process.exit(1)
       }
 
+      debug('setting npm registry', npm.registry)
       var nerfDart = require('nerf-dart')(npm.registry)
       var wroteNpmRc = false
 
@@ -119,13 +121,22 @@ npmconf.load({}, function (err, conf) {
       }
 
       conf.save('project', function (err) {
-        if (err) return log.error('pre', 'Failed to save npm config.', err)
+        if (err) {
+          debug('failed to save npm config', err)
+          return log.error('pre', 'Failed to save npm config.', err)
+        }
 
-        if (wroteNpmRc) log.verbose('pre', 'Wrote authToken to .npmrc.')
+        if (wroteNpmRc) {
+          debug('wrote auth token to .npmrc')
+          log.verbose('pre', 'Wrote authToken to .npmrc.')
+        }
 
+        debug('loading src/pre')
         require('../src/pre')(config, function (err, release) {
           if (err) {
             log.error('pre', 'Failed to determine new version.')
+            debug('failed to determine new version')
+            debug(err.message)
 
             var args = ['pre', (err.code ? err.code + ' ' : '') + err.message]
             if (err.stack) args.push(err.stack)
