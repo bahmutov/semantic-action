@@ -9,6 +9,14 @@ var log = require('npmlog')
 var nopt = require('nopt')
 var npmconf = require('npmconf')
 var normalizeData = require('normalize-package-data')
+const debug = require('debug')('semantic-action')
+
+// if anything goes wrong, exit with an error code
+process.on('unhandledRejection', function (reason, p) {
+  console.log('Unhandled Rejection at: Promise',
+    p, ' reason: ', reason)
+  process.exit(1)
+})
 
 log.heading = 'semantic-action'
 var env = process.env
@@ -87,7 +95,8 @@ npmconf.load({}, function (err, conf) {
 
   if (options.argv.remain[0] === 'pre') {
     log.verbose('pre', 'Running pre-script.')
-    log.verbose('pre', 'Veriying conditions.')
+    log.verbose('pre', 'Verifying conditions.')
+    debug('verifying config')
 
     plugins.verifyConditions(config, function (err) {
       if (err) {
