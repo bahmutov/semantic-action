@@ -5,10 +5,17 @@ module.exports = function (config, cb) {
   var plugins = config.plugins
   var lastRelease = config.lastRelease
 
+  debug('analyze commits since last release', lastRelease)
+  debug('config', config)
+
   plugins.analyzeCommits(config, function (err, type) {
-    if (err) return cb(err)
+    if (err) {
+      debug('analyze commits error', err.message)
+      return cb(err)
+    }
 
     if (!type) {
+      debug('could not determine release type since', lastRelease)
       return cb(new SemanticReleaseError(
         'There are no relevant changes, so no new version is released.',
         'ENOCHANGE'
