@@ -6,7 +6,11 @@ const debug = require('debug')('semantic-action')
 var getCommits = require('./lib/commits')
 var getType = require('./lib/type')
 
+debug('getCommits', getCommits)
+debug('getType =', getType)
+
 module.exports = function (config, cb) {
+  debug('pre config', config)
   var plugins = config.plugins
   debug('plugins', plugins)
 
