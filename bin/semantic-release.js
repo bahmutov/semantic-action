@@ -13,7 +13,7 @@ const debug = require('debug')('semantic-action')
 
 // if anything goes wrong, exit with an error code
 process.on('unhandledRejection', function (reason, p) {
-  console.log('Unhandled Rejection at: Promise',
+  console.error('Unhandled Rejection at: Promise',
     p, ' reason: ', reason)
   process.exit(1)
 })
@@ -50,6 +50,8 @@ var options = _.defaults(
     githubUrl: env.GH_URL
   }
 )
+debug('all options', options)
+
 var plugins = require('../src/lib/plugins')(options)
 
 npmconf.load({}, function (err, conf) {
@@ -102,7 +104,10 @@ npmconf.load({}, function (err, conf) {
       if (err) {
         debug('error verifying conditions', err.message)
         log[options.debug ? 'warn' : 'error']('pre', err.message)
-        if (!options.debug) process.exit(1)
+        if (!options.debug) {
+          debug('debugging mode off, exitting')
+          process.exit(1)
+        }
       }
 
       debug('setting npm registry', npm.registry)
