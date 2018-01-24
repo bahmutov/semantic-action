@@ -47,7 +47,7 @@
     "prettier-standard": "8.0.0",
     "proxyquire": "1.8.0",
     "rimraf": "2.6.2",
-    "semantic-release": "12.2.2",
+    "semantic-release": "12.2.4",
     "simple-commit-message": "3.3.2",
     "standard": "10.0.3",
     "tap": "11.0.1"
@@ -90,7 +90,9 @@
   },
   "config": {
     "next-update": {
-      "skip": ["simple-commit-message"]
+      "skip": [
+        "simple-commit-message"
+      ]
     },
     "pre-git": {
       "commit-msg": "simple",
