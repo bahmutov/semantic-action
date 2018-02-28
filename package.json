@@ -40,7 +40,7 @@
     "mock-spawn": "^0.2.6",
     "next-update-travis": "1.7.1",
     "nixt": "^0.5.0",
-    "nock": "9.1.6",
+    "nock": "9.2.3",
     "npm-registry-couchapp": "2.7.1",
     "nyc": "11.5.0",
     "pre-git": "3.17.0",
